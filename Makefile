@@ -1,5 +1,5 @@
 all:
-	clang -Wall -Wextra -Werror -I libft/includes -o get_next_line.o -c get_next_line.c
-	clang -Wall -Wextra -Werror -I libft/includes -o main.o -c main.c
-	clang -o test_gnl main.o get_next_line.o -I libft/includes -L libft/ -lft
+	gcc -o get_next_line.o -c get_next_line.c -g 
+	gcc -o main.o -c main.c -g
+	gcc -o gnl_test main.o get_next_line.o -L libft/ -lft
 

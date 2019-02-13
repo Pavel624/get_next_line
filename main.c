@@ -13,30 +13,34 @@
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
 int main()
 {
-    int fd;
+    int fd1, fd2;
     int res;
     char *line;
 
-    fd = open("file.txt", O_RDONLY);
-    if (fd < 0)
+    fd1 = open("file.txt", O_RDONLY);
+    fd2 = open("file1.txt", O_RDONLY);
+    if (fd1 < 0)
         return (-1);
     
-    printf("%d \n", fd);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
-    res = get_next_line(fd,&line);
-    printf("%d %s\n",res,line);
+    res = get_next_line(fd1,&line);
+    printf("descriptor: %d, line: %s\n",fd1,line);
+    res = get_next_line(fd1,&line);
+    printf("descriptor: %d, line: %s\n",fd1,line);
+    res = get_next_line(fd2,&line);
+    printf("descriptor: %d, line: %s\n",fd2,line);
+    res = get_next_line(fd2,&line);
+    printf("descriptor: %d, line: %s\n",fd2,line);
+    res = get_next_line(fd1,&line);
+    printf("descriptor: %d, line: %s\n",fd1,line);
+    res = get_next_line(fd1,&line);
+    printf("descriptor: %d, line: %s\n",fd1,line);
+    res = get_next_line(fd2,&line);
+    printf("descriptor: %d, line: %s\n",fd2,line);
+    res = get_next_line(fd2,&line);
+    printf("descriptor: %d, line: %s\n",fd2,line);
     return (0);
 }
